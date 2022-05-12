@@ -1,4 +1,4 @@
-#lang racket
+#lang scheme
 
 ;; Función que calcula el factorial de un número entero positivo
 ;; 1...n
