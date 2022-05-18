@@ -50,19 +50,20 @@
              (member? a (cdr lat))))))
 
 (define r-member?
-  (lambda (a lst)
+  (lambda (a expr)
     (cond
-      [(null? lst) #f]
-      [(atom? lst) (eq? a lst)]
-      [else (or (r-member? a (first lst))
-                (r-member? a (cdr lst)))])))
+      [(null? expr) #f]
+      [(atom? expr) (eq? a expr)]
+      [else (or (r-member? a (first expr))
+                (r-member? a (cdr expr)))])))
+
 
 (define r-member2?
-  (lambda (a lst)
-    (and (not (null? lst))
-         (or (and (atom? lst) (eq? a lst))
-             (r-member2? a (first lst))
-             (r-member2? a (cdr lst))))))
+  (lambda (a expr)
+    (and (not (null? expr))
+         (or (and (atom? expr) (eq? a expr))
+             (r-member2? a (first expr))
+             (r-member2? a (cdr expr))))))
 
 (define node
   (lambda (val l r)
